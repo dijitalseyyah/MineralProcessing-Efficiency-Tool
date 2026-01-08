@@ -1,0 +1,56 @@
+﻿
+# 🛠️ MineralProcessing-Efficiency-Tool
+
+Bu araç, kırma ve eleme devrelerinin performansını optimize etmek, enerji verimliliğini analiz etmek ve tane boyu dağılım modellerini kullanarak tesis çıktılarını tahmin etmek için tasarlanmış bir simülatördür.
+
+## 📋 İçerik ve Özellikler
+
+### 1. Tane Boyu Dağılım Analizi
+
+Cevher hazırlama süreçlerinde ham veriyi anlamlı bir modele oturtmak için iki ana fonksiyon sunar:
+
+* **Gaudin-Schuhmann Modeli:** Genellikle primer kırma ürünleri için kümülatif geçiş yüzdesini hesaplar.
+* **Rosin-Rammler Dağılımı:** Özellikle öğütme ve ince boyutlu ürünlerin dağılım katsayısını () ve karakteristik boyutunu () belirlemede kullanılır.
+
+### 2. Enerji ve Kapasite Hesaplamaları (Bond Yasası)
+
+Kırıcıların performansını ve enerji maliyetlerini analiz etmek için **Bond İş İndeksi** formülünü kullanır:
+
+* ** (Work Index):** Cevherin sertliğine göre belirlenen iş indeksi.
+* ** ve :** Besleme ve ürünün %80'inin geçtiği elek boyutları.
+
+### 3. Elek Verimliliği ve Devre Simülasyonu
+
+* **Elek Altı/Üstü Hesaplama:** Verilen elek açıklığına göre kütle balansını çıkarır.
+* **Verimlilik Skoru:** Teorik kapasite ile gerçek geçiş oranlarını kıyaslayarak tıkanma (blinding) veya aşınma durumlarını raporlar.
+
+---
+
+## 🚀 Kullanım Senaryosu (Workflow)
+
+1. **Veri Girişi:** Laboratuvar elek analizi sonuçlarını (Elek No / Açıklık / Kalan Miktar) CSV veya manuel olarak girin.
+2. **Modelleme:** Yazılım, regresyon analizi ile en uygun dağılım eğrisini çizer ve  değerini otomatik bulur.
+3. **Optimizasyon:** İstenen  değerine ulaşmak için gereken enerji tüketimini ve kırıcı ayarını (CSS) simüle edin.
+4. **Raporlama:** Tesisin mevcut durumu ile optimize edilmiş hali arasındaki farkı (enerji tasarrufu, kapasite artışı) PDF olarak alın.
+
+## 🛠️ Kurulum ve Gereksinimler
+
+```bash
+# Depoyu klonlayın
+git clone https://github.com/kullaniciadi/MineralProcessing-Efficiency-Tool.git
+
+# Gerekli kütüphaneleri yükleyin
+pip install numpy pandas matplotlib scipy
+
+```
+
+---
+
+## 📈 Örnek Çıktı Tablosu
+
+| Parametre | Mevcut Durum | Optimize Edilmiş | Kazanç |
+| --- | --- | --- | --- |
+| ** (mm)** | 12.5 | 10.0 | - |
+| **Enerji (kWh/t)** | 1.85 | 1.62 | **%12.4 Tasarruf** |
+| **Kapasite (t/h)** | 450 | 510 | **%13.3 Artış** |
+
